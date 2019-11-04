@@ -1,0 +1,108 @@
+<! DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Web Minion</title>
+    <script type="text/javascript" src="scripts/jquery-3.0.0.js"></script>
+    <link rel="stylesheet" href="stylesheets/masterstyle.css">
+    <link rel="stylesheet" href="stylesheets/webminion.css">
+    <script type="text/javascript" src="scripts/api.js"></script>
+    
+    <script>
+        getcode('code'); /* retrieves the authcode from the url in the browser given by the spark */
+        
+        gettoken(); /* use the authcode to exchange the access token */
+        
+        $(document).ready(function(){
+            
+        /* START Whenever 'my room' button is clicked if will list the rooms. */    
+        $("#fetchmyrooms").click(function(){ 
+        var tmp;
+        var i=0;
+        $("#listroom").html(" "); /* we are trying to clear out the space before loading the new values as the append would keep adding */
+            
+        for(i= 0; i<roomname.length;i++) /* it can list rooms as the function gettoken has already called the getroom functions */
+        {
+            tmp = '<input type="radio" name="roomname" value="' + i + '">' + roomname[i] + '</input><br><br>';
+            $("#listroom").append(tmp);
+            tmp=null;   
+        }
+            getrooms();
+        });
+        /* END */ 
+        
+        
+        /* START selects the room listed after fetching the rooms */
+        $("p#listroom").on('click','input:radio',function(){
+        target = ($('input[name="roomname"]:checked').val());
+        $("#console").html("");
+        setInterval(getmessages(target),10000);
+        });
+        /* END */
+            
+            
+            
+        $("#buttonsendmessage").click(function(){
+        message = $("#message").val();
+        /* alert(roomname[target] + message) ;*/ /* For Troubleshooting */ 
+        sendtext();
+        $("#message").val("")
+        })
+                    
+            
+        });
+    </script>
+    
+</head>
+
+    
+    
+    <body>
+        
+    <!--START defines the navigational structure of the page-->
+    <nav id="navigation">
+        <img id="logo" src="images/alogo.png">
+    <ul>
+        <a href="index.html"><li>Home</li></a>
+        <a href="api.html"><li>Spark&nbsp;API</li></a>
+        <a href="vision.html"><li>Vision</li></a>
+        <a href="documentation.html"><li>Documentation</li></a>
+        <a href="contactus.html"><li>Contact&nbsp;Us </li></a>
+        <hr>
+    </ul>    
+    </nav>
+    <!--END-->
+     
+    <h3 id="appname">Web Minion</h3>
+    <div id="container">
+        
+    <div id="console">
+    </div>
+    
+        
+    <!--START STEP 1 (LIST YOUR ROOMS) -->    
+    <div id="rooms">
+    <input type="button" value="My Rooms" id="fetchmyrooms">
+    <br><br><hr>
+    <p id="listroom">
+    </p>
+    </div>
+    <!--END-->
+    
+        
+    <!--START STEP 2 (Sends message to the target room) -->    
+    <div id="sendmessage">
+    <input type="text" id="message">    
+    <input type="button" value="Send" id="buttonsendmessage">    
+    </div>
+    <!--END-->
+    </div>  
+        
+        
+        
+    <footer>&copy;2016-17 Adarsh Chauhan (adchauha) All Rights Reserved </footer>
+    </body>
+    
+    
+</html>

@@ -1,0 +1,76 @@
+#appname
+{
+ text-align:center;   
+ font-size:2em;
+ color:orange;
+}
+
+#container
+{
+    border:1px solid black;
+    float:left;
+    width:70%;
+    height:70%;
+    margin:0 0 0 5% ;
+    position:relative;
+    background-color: rgba(123,123,123,.7);
+}
+
+
+
+/*START stylesheet for the text input and send message */
+#sendmessage
+{
+    bottom:1%;
+    left:1%;
+    position:absolute;
+    width:99%;
+}
+#message
+{
+    width:90%;
+    padding:10px;
+}
+#buttonsendmessage
+{
+    padding:5px 10px 5px;
+    width:9%;
+    margin:0 auto;
+}
+/* END */
+
+
+/*START stylesheet for listed rooms */
+#rooms
+{    
+    width:20%;
+    height:85%;
+    position:absolute;
+    top:2%;
+    left:1.5%;
+    overflow-y: auto;
+}
+#fetchmyrooms
+{
+    position:absolute;
+    width:45%;
+    margin:0 20%;
+    top:10px;
+    padding: 5px 5px;
+}
+/* END */
+
+
+/* START window for displaying messages */
+#console
+{
+    color:white;
+    border:1px black solid;
+    width:73%;
+    height:85%;
+    left:25%;
+    top:1%;
+    position:absolute;
+    overflow-y: auto;
+}
+/* END */

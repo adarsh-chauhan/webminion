@@ -1,0 +1,56 @@
+<! DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Spark API</title>
+    <script type="text/javascript" src="scripts/jquery-3.0.0.js"></script>
+    <link rel="stylesheet" href="stylesheets/masterstyle.css">
+    <script>
+        
+        $(document).ready(function()
+        {
+        $("#redirectbutton").click(function(){
+        var h = "https://api.ciscospark.com/v1/authorize?client_id=C9b276180acf7de3338a9b7c0027b7c2be33d0f0ea174cda97c29282841d593b3&response_type=code&redirect_uri=http%3A%2F%2Fwebminion.ultimatefreehost.in%2Fwebminion.html&scope=spark%3Amessages_write%20spark%3Arooms_read%20spark%3Amemberships_read%20spark%3Amessages_read%20spark%3Arooms_write%20spark%3Apeople_read%20spark%3Amemberships_write&state=set_state_here";
+        $(location).attr('href',h);  
+        })
+        });
+        
+    </script>
+    
+</head>
+
+    
+    
+    <body>
+        
+    <!--start defines the structure of the page-->
+    <nav id="navigation">
+        <img id="logo" src="images/alogo.png">
+    <ul>
+        <a href="index.html"><li>Home</li></a>
+        <a href="api.html"><li>Spark&nbsp;API</li></a>
+        <a href="vision.html"><li>Vision</li></a>
+        <a href="documentation.html"><li>Documentation</li></a>
+        <a href="contactus.html"><li>Contact&nbsp;Us </li></a>
+        <hr>
+    </ul>    
+    </nav>
+    <!--end defines the structure of the page-->
+
+    <div id="redirectmessage">
+        <h3>Authentication Required</h3>
+        <p> You will be redirected from here for Authentication.<br>
+            Once you are authenticated you will be redirected back<br> 
+            to use the webminion app.<br>
+            Please click on the button to proceed.</br></br>
+            <input id="redirectbutton" type="button" value="Proceed">
+            </p>        
+    </div>
+    
+    
+    <footer>&copy;2016-17 Adarsh Chauhan (adchauha) All Rights Reserved </footer>
+    </body>
+    
+    
+</html>
